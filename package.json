@@ -1,0 +1,13 @@
+{
+  "name": "amz-vipon-nodejs",
+  "version": "1.0.0",
+  "description": "mapping best seller amz with vipon",
+  "main": "index.js",
+  "author": "VuPT <vupt94@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bluebird": "^3.5.2",
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.88.0"
+  }
+}
