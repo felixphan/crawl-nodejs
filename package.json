@@ -5,10 +5,18 @@
   "main": "index.js",
   "author": "VuPT <vupt94@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
   "devDependencies": {
+    "bluebird": "^3.5.2",
     "cheerio": "^1.0.0-rc.2",
     "json-parser": "^1.1.5",
+    "lodash.uniq": "^4.5.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
+  },
+  "dependencies": {
+    "lodash.includes": "^4.3.0"
   }
 }
