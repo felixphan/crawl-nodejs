@@ -12,7 +12,8 @@ var rootURL = `https://www.vipon.com/promotion/search?domain=www.amazon.com&page
 // https://www.vipon.com/promotion/search?&domain=www.amazon.com&type=upcoming&page=1
 var viponURLs = [];
 var isEnd = false;
-async function index() {
+async function index(input) {
+  populateRootURL(input)
   // Loop to Crawl All Vipon Coupon inside Root URL
   while (!isEnd) {
     await jsonPageHandler(
@@ -25,6 +26,15 @@ async function index() {
       });
   }
   crawlAmazon();
+}
+
+function populateRootURL(input){
+  if(input["type"]!== ''){
+    rootURL = rootURL.concat("&type=",input["type"]);
+  }
+  if(input["group"] !== ''){
+    rootURL = rootURL.concat("&group=",encodeURIComponent(input["group"]));
+  }
 }
 /**
  * Crawl Amazon Data from Vipon URL
@@ -58,4 +68,5 @@ function populateViponURLs(urls) {
     isEnd = true;
   }
 }
-index();
+
+module.exports = index;

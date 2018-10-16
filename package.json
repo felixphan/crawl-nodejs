@@ -8,12 +8,18 @@
   "scripts": {
     "crawl:vipon": "node ./src/viponProcessor/index.js"
   },
+  "bin": {
+    "crawl": "./bin/index.js"
+  },
   "devDependencies": {
     "bluebird": "^3.5.2",
     "cheerio": "^1.0.0-rc.2",
+    "colors": "^1.3.2",
+    "commander": "^2.19.0",
     "json-parser": "^1.1.5",
     "lodash.uniq": "^4.5.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "node-cron": "^2.0.3"
   }
 }

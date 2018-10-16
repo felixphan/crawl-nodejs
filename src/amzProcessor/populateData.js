@@ -1,9 +1,9 @@
 /**
  * Populate product data from amz
- * 
- * @param {*} $ 
- * @param {*} url 
- * @param {*} amazonURL 
+ *
+ * @param {*} $
+ * @param {*} url
+ * @param {*} amazonURL
  */
 const populate = ($, url, amazonURL) => {
   const title = $('#productTitle')
@@ -16,5 +16,3 @@ const populate = ($, url, amazonURL) => {
   };
 };
 module.exports = populate;
-
-
