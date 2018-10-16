@@ -7,10 +7,13 @@ A tool which crawl data then get amz products info
 ## Installation
 
 1. yarn install (Yarn is alternatives of npm)
-2. yarn scrapper:vipon `type` (all, upcoming, instant, deal): Crawl by category, `all` is default and unneccessary to input in command
+2. yarn crawl:vipon
 
 ## Future Enhancement
 
-1. Crawl from other pages.
-2. Return propriate Amazon Data (Basic information, ranks..)
-3. Encrypt response
+1. Crawl with types
+2. Crawl from other pages
+3. Save to MongoDB
+4. Cron job
+5. CommanderJS
+6. Retrieve appropriate data using AmazonAPI and EbayEPI

@@ -1,12 +1,12 @@
 {
   "name": "amz-vipon-nodejs",
   "version": "1.0.0",
-  "description": "mapping best seller amz with vipon",
+  "description": "Crawl Amazon Coupon Products",
   "main": "index.js",
   "author": "VuPT <vupt94@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "scrapper:vipon": "node ./src/viponProcessor/vipon.js"
+    "crawl:vipon": "node ./src/viponProcessor/index.js"
   },
   "devDependencies": {
     "bluebird": "^3.5.2",

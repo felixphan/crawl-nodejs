@@ -1,11 +1,11 @@
 /**
- * Retrieve product data from amz
+ * Populate product data from amz
  * 
  * @param {*} $ 
  * @param {*} url 
  * @param {*} amazonURL 
  */
-const retrieve = ($, url, amazonURL) => {
+const populate = ($, url, amazonURL) => {
   const title = $('#productTitle')
     .text()
     .trim();
@@ -15,6 +15,6 @@ const retrieve = ($, url, amazonURL) => {
     amazonURL: amazonURL
   };
 };
-module.exports = retrieve;
+module.exports = populate;
 
 

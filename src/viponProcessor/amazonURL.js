@@ -1,10 +1,11 @@
+const htmlPageHandler = require('../lib/responseHandler/HTMLPage');
 /**
  * Retrieve Amz URL from HTML Vipon Product DOM page
  *
  * @param {*} $ HTML Dom Page
  */
 const process = $ => {
-  const amazonURL = $(
+  var amazonURL = $(
     'ul.list-unstyled:nth-child(3) > li:nth-child(1) > a:nth-child(1)'
   ).attr('href');
   
@@ -17,4 +18,10 @@ const process = $ => {
   return amazonURL;
 };
 
-module.exports = process;
+function index(url){
+  return htmlPageHandler(url).then($ => {
+    // Get amz url
+    return process($);
+  });
+}
+module.exports = index;
