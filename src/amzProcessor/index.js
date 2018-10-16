@@ -1,5 +1,6 @@
 const populateData = require('./populateData');
 const htmlPageHandler = require('../lib/responseHandler/HTMLPage');
+const persist = require('./persist');
 function index(couponUrl, amazonURL) {
   htmlPageHandler(amazonURL)
     .then($ => {
@@ -7,7 +8,7 @@ function index(couponUrl, amazonURL) {
       return populateData($, couponUrl, amazonURL);
     })
     .then(value => {
-      console.log(value);
+      persist(value);
     });
 }
 

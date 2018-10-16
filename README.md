@@ -10,7 +10,7 @@ A tool which crawl data then get amz products info
 2. npm install -g ./ (To make command line usable without `npm` first)
 3. crawl vipon -option (value)
 
-### Option and value
+## Option and value
 
 1. -t / --type: Crawl by type (all, upcoming, instant, deal)
 2. -g / --group: Crawl by group (Beauty Grooming, Watches,...)
@@ -18,5 +18,7 @@ A tool which crawl data then get amz products info
 ## Future Enhancement
 
 1. Crawl from other pages
-2. Save to MongoDB
-3. Retrieve appropriate data using AmazonAPI and EbayEPI
+2. Update MongoDB Record
+3. Pass cron in command-line
+4. Config MongoDB Host
+5. Retrieve appropriate data using AmazonAPI and EbayEPI
