@@ -8,17 +8,17 @@ function persist(value) {
       if (err) throw err;
       var dbo = db.db('vipon');
       dbo.collection('data').findOne(value, function(err, res) {
-        // if (res) {
-        //   dbo.collection('data').replaceOne(value, function(err, res) {
-        //     console.log('1 document updated');
-        //     db.close();
-        //   });
-        // } else {
-        dbo.collection('data').insertOne(value, function(err, res) {
-          console.log('1 document inserted');
-          db.close();
-        });
-        // }
+        if (res) {
+          dbo.collection('data').updateOne(res, value, function(err, res) {
+            console.log('1 document updated');
+            db.close();
+          });
+        } else {
+          dbo.collection('data').insertOne(value, function(err, res) {
+            console.log('1 document inserted');
+            db.close();
+          });
+        }
       });
     }
   );

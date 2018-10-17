@@ -18,7 +18,6 @@ A tool which crawl data then get amz products info
 ## Future Enhancement
 
 1. Crawl from other pages
-2. Update MongoDB Record
-3. Pass cron in command-line
-4. Config MongoDB Host
-5. Retrieve appropriate data using AmazonAPI and EbayEPI
+2. Pass cron in command-line
+3. Config MongoDB Host
+4. Retrieve appropriate data using AmazonAPI and EbayEPI
