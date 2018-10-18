@@ -3,7 +3,7 @@
 const program = require('commander');
 const index = require('../src/viponProcessor/index');
 const colors = require('colors');
-// const cron = require('node-cron');
+const cron = require('node-cron');
 
 program
   .command('vipon')
