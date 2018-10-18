@@ -20,10 +20,10 @@ program
       type: args.type,
       group: args.group
     };
-    // cron.schedule('*/5 * * * *', function() {
-    //   console.log('CRON every 5 minutes');
-    //   index(input);
-    // });
+    cron.schedule('0 0 */6 * * *', function() {
+      console.log('CRON every 6 minutes');
+      index(input);
+    });
     index(input);
   });
 program.parse(process.argv);
