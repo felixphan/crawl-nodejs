@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+process.env.UV_THREADPOOL_SIZE = 512;
 
 const program = require('commander');
 const index = require('../src/viponProcessor/index');
 const colors = require('colors');
-const cron = require('node-cron');
+// const cron = require('node-cron');
 
 program
   .command('vipon')
@@ -20,10 +21,10 @@ program
       type: args.type,
       group: args.group
     };
-    cron.schedule('0 0 */6 * * *', function() {
-      console.log('CRON every 6 minutes');
-      index(input);
-    });
+    // cron.schedule('0 0 */6 * * *', function() {
+    //   console.log('CRON every 6 minutes');
+    //   index(input);
+    // });
     index(input);
   });
 program.parse(process.argv);

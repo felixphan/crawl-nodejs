@@ -8,7 +8,7 @@ const Promise = require('bluebird');
 /**
  * Crawl Amazon Products with Vipon Coupon
  */
-var rootURL = `https://www.vipon.com/promotion/search?domain=www.amazon.com&page=`;
+var rootURL = `https://www.vipon.com/promotion/search?domain=www.amazon.com&page=1`;
 // https://www.vipon.com/promotion/search?&domain=www.amazon.com&type=upcoming&page=1
 var viponURLs = [];
 var isEnd = false;
@@ -18,6 +18,7 @@ async function index(input) {
   rootURL.concat(i);
   // Loop to Crawl All Vipon Coupon inside Root URL
   while (!isEnd) {
+    console.log('Crawl by Type %s', rootURL);
     await jsonPageHandler(
       //TODO: Update ${i} of Page Each Time.
       rootURL
@@ -25,11 +26,11 @@ async function index(input) {
       .then($ => crawlVipon($))
       .then(urls => {
         populateViponURLs(urls);
+        crawlAmazon();
         i++;
         rootURL = rootURL.substr(0,rootURL.length-1).concat(i);
       });
   }
-  crawlAmazon();
 }
 
 function populateRootURL(input){
@@ -45,7 +46,7 @@ function populateRootURL(input){
  */
 function crawlAmazon() {
   // Remove Duplicates Vipon URLs by uniq of lodash
-  Promise.mapSeries(
+  Promise.map(
     uniq(viponURLs),
     function(url) {
       return retrieveAmazon(url).then(amazonURL =>
