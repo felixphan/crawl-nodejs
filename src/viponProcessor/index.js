@@ -8,12 +8,14 @@ const Promise = require('bluebird');
 /**
  * Crawl Amazon Products with Vipon Coupon
  */
-var rootURL = `https://www.vipon.com/promotion/search?domain=www.amazon.com&page=1`;
+var rootURL = `https://www.vipon.com/promotion/search?domain=www.amazon.com&page=`;
 // https://www.vipon.com/promotion/search?&domain=www.amazon.com&type=upcoming&page=1
 var viponURLs = [];
 var isEnd = false;
+var i =1;
 async function index(input) {
-  populateRootURL(input)
+  populateRootURL(input);
+  rootURL.concat(i);
   // Loop to Crawl All Vipon Coupon inside Root URL
   while (!isEnd) {
     await jsonPageHandler(
@@ -23,6 +25,8 @@ async function index(input) {
       .then($ => crawlVipon($))
       .then(urls => {
         populateViponURLs(urls);
+        i++;
+        rootURL = rootURL.substr(0,rootURL.length-1).concat(i);
       });
   }
   crawlAmazon();
@@ -63,7 +67,6 @@ function populateViponURLs(urls) {
   if (urls.length !== 0) {
     viponURLs.push(...urls);
     //TODO: Testing Only
-    isEnd = true;
   } else {
     isEnd = true;
   }
